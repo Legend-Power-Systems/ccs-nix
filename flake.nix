@@ -12,14 +12,11 @@
         with import nixpkgs {
           system = "x86_64-linux";
           config.allowUnfree = true;
-          config.permittedInsecurePackages = [
-                  "python-2.7.18.7"
-                ];
           config.packageOverrides = pkgs: {
             steam = pkgs.steam.override {
               extraPkgs = pkgs: with pkgs; [
                 libxcrypt-legacy
-                python2
+                python3
                 ncurses5
                 libusb-compat-0_1
               ];
