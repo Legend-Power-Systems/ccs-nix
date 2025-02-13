@@ -109,7 +109,7 @@
 
           mkdir -p $out/bin
           echo "#! /usr/bin/env bash" > $out/bin/ccs
-          echo "steam-run $out/ccs/eclipse/ccstudio" >> $out/bin/ccs
+          echo "${steam-run}/bin/steam-run $out/ccs/eclipse/ccstudio" >> $out/bin/ccs
           chmod oug+x $out/bin/ccs
 
           '';
