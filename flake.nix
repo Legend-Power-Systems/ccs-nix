@@ -105,9 +105,16 @@
           cp ''${desktopItem}/share/applications/* $out/share/applications
 
           mkdir -p $out/bin
+
+          # Create CCS wrapper
           echo "#! /usr/bin/env bash" > $out/bin/ccs
           echo "${steam-run}/bin/steam-run $out/ccs/eclipse/ccstudio" >> $out/bin/ccs
           chmod oug+x $out/bin/ccs
+
+          # Create Eclipse wrapper for CLI use
+          echo "#! /usr/bin/env bash" > $out/bin/eclipse
+          echo "${steam-run}/bin/steam-run $out/ccs/eclipse/eclipse \"\$@\"" >> $out/bin/eclipse
+          chmod oug+x $out/bin/eclipse
 
           '';
 
