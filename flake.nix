@@ -37,17 +37,17 @@
           sha256 = "sha256-pbaYBz4XZ0jGt2vo9wzME+3UsBtzOGNMEQcg9ydOvE0=";
         };
 
-        #desktopItem = makeDesktopItem {
-        #  type = "Application";
-        #  terminal = false;
-        #  name = "Code Composer Studio";
-        #  exec = "ccs";
-        #  icon = "ccs";
-        #  comment = "Texas Instruments Code Composer Studio";
-        #  desktopName = "Code Composer Studio";
-        #  genericName = "Code Composer Studio";
-        #  categories = [ "Development" ];
-        #};
+        desktopItem = makeDesktopItem {
+          type = "Application";
+          terminal = false;
+          name = "Code Composer Studio";
+          exec = "ccs";
+          icon = "ccs";
+          comment = "Texas Instruments Code Composer Studio";
+          desktopName = "Code Composer Studio";
+          genericName = "Code Composer Studio";
+          categories = [ "Development" ];
+        };
 
         buildInputs = [
             openssl
@@ -104,8 +104,8 @@
           mkdir -p $out/share/icons
           ln -s $out/ccs/doc/ccs.ico $out/share/icons/ccs.ico
 
-          #mkdir -p $out/share/applications
-          #cp ''${desktopItem}/share/applications/* $out/share/applications
+          mkdir -p $out/share/applications
+          cp ''${desktopItem}/share/applications/* $out/share/applications
 
           mkdir -p $out/bin
           echo "#! /usr/bin/env bash" > $out/bin/ccs
